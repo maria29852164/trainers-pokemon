@@ -1,0 +1,22 @@
+.trainer-app{
+
+
+
+  margin-top:1%;
+
+
+
+  display : block;
+  width: 20%;
+   height: 20%;
+  margin-left:40%;
+}
+
+.trainer-card{
+  margin-top:10vh;
+  min-height: 50vh;
+
+}
+.content-trainer{
+  margin-top:2.5rem;
+}

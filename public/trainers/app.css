@@ -1,0 +1,14 @@
+.trainer-app{
+    height: 30%;
+    width: 30%;
+    margin:auto;
+    margin-top:10%;
+
+
+    display : block;
+
+}
+.trainer-card{
+  margin-top:10vh;
+  height: 80vh;
+}
