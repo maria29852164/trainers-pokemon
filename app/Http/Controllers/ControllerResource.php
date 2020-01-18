@@ -42,19 +42,21 @@ class ControllerResource extends Controller
     public function store(Request $request)
     {
         //
-
+        $trainer=new Trainer();
         if($request->hasFile('avatar')){
             $file=$request->file('avatar');
-            $name=time().$file->getClientOriginalName();
+            $name =  time().$file->getClientOriginalName();
+            $trainer->avatar=$name;
+ 
             $file->move(public_path().'/images/',$name);
 
         }
-        $trainer=new Trainer();
+       
         $trainer->name=$request->input('name');
         $trainer->password=$request->input('password');
-        $trainer->avatar=$name;
+        //$trainer->avatar=$name;
         $trainer->description=$request->input('description');
-        $trainer->slug=$request->input('name');
+        $trainer->slug=$request->input('slug');
         $trainer->save();
 
         //return $request->all();
