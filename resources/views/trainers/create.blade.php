@@ -16,6 +16,18 @@
 
        <div class="panel-body">
           <form method='POST' action="/trainer" class="form-group" enctype="multipart/form-data">
+
+             @if($errors->any())
+                  @foreach($errors->all as $error)
+
+                    <div class="alert alert-danger">
+                      <ul>
+                      <li>{{$error}}</li>
+                      </ul>
+                    </div>
+                   
+                  @endforeach
+             @endif
                @include('trainers/form')
             
           </form>

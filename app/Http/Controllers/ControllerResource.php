@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Trainer;
 
+use App\Http\Requests\StroreTrainerRequest;
+
 
 class ControllerResource extends Controller
 {
@@ -39,9 +41,9 @@ class ControllerResource extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StroreTrainerRequest $request)
     {
-        //
+       
         $trainer=new Trainer();
         if($request->hasFile('avatar')){
             $file=$request->file('avatar');
@@ -121,8 +123,16 @@ class ControllerResource extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trainer $trainer)
+
     {
-        //
+    
+     
+        $file=public_path().'/images/'.$trainer->avatar;
+        \File::delete($file);
+
+        $trainer->delete();
+        return 'deleted';
+      
     }
 }

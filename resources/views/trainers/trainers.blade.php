@@ -14,6 +14,9 @@
             <h5 class="card-title">{{$trainer->name}}</h5>
             <p class="card-text">{{$trainer->description}}</p>
             <a href="/trainer/{{$trainer->slug}}" class="btn btn-primary">See More...</a>
+           {!! Form::open(['route'=>['trainer.destroy',$trainer->slug],'method'=>'DELETE']) !!}
+           {!!Form::submit('delete',['class'=>'btn btn-danger my-2'])!!}
+           {!!Form::close()!!}
         </div>
         </div>
 
