@@ -41,7 +41,7 @@ class ControllerResource extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StroreTrainerRequest $request)
+    public function store(Request $request)
     {
        
         $trainer=new Trainer();
@@ -62,7 +62,10 @@ class ControllerResource extends Controller
         $trainer->save();
 
         //return $request->all();
-        return 'saved';
+        //return 'saved';
+        //redireccionamiento
+       
+        return redirect()->route('trainer.index');
     }
 
     /**
@@ -88,6 +91,7 @@ class ControllerResource extends Controller
     public function edit(Trainer $trainer)
     {
         return view('trainers/edit',compact('trainer'));
+  
     }
 
     /**
@@ -110,8 +114,8 @@ class ControllerResource extends Controller
         }
         $trainer->save();
         //$trainer->whereSlug($request->slug);
-       return 'update';
-        
+       //return 'update';
+       return redirect()->route('trainer.show',[$trainer]);
      
         
      
@@ -132,7 +136,10 @@ class ControllerResource extends Controller
         \File::delete($file);
 
         $trainer->delete();
-        return 'deleted';
+       // return 'deleted';
+
+
+       return redirect()->route('trainer.index');
       
     }
 }
