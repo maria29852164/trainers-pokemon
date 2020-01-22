@@ -115,7 +115,7 @@ class ControllerResource extends Controller
         $trainer->save();
         //$trainer->whereSlug($request->slug);
        //return 'update';
-       return redirect()->route('trainer.show',[$trainer]);
+       return redirect()->route('trainer.show',[$trainer])->with('status','trainer is updated succesfully');
      
         
      
@@ -139,7 +139,7 @@ class ControllerResource extends Controller
        // return 'deleted';
 
 
-       return redirect()->route('trainer.index');
+       return redirect()->route('trainer.index')->with('status','trainer is deleted succefully');
       
     }
 }

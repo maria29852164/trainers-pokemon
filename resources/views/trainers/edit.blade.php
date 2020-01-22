@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="{{ asset('trainers/edit.css') }}">
 <link rel="stylesheet" href="{{ asset('trainers/show.css') }}">
 <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap-4.4.1-dist/css/bootstrap.min.css') }}">
+@if(session('status'))
+  <div class="alert alert-info">{{session('status')}}</div>
+@endif
+
 <div class="container">
 <h2 class="text-center app-title">Edit yout trainer here</h2>
 <form method='POST' action="/trainer/{{$trainer->slug}}" class="form-group" enctype="multipart/form-data">
@@ -38,7 +42,11 @@
 
 
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            {!! Form::open(['route'=>['trainer.destroy',$trainer->slug],'method'=>'DELETE']) !!}
+           {!!Form::submit('delete',['class'=>'btn btn-danger my-2'])!!}
+           {!!Form::close()!!}
           </form>
+       
 </div>
 
 <script src="{{asset('bootstrap/bootstrap-4.4.1-dist/js/bootstrap.min.js')}}"></script>

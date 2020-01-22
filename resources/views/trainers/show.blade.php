@@ -1,5 +1,9 @@
 @extends('layout/layout')
 @section('show')
+@if(session('status'))
+<div class="alert alert-success">{{session('status')}}</div>
+
+@endif
 <link rel="stylesheet" href="{{ asset('trainers/show.css') }}">
 <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap-4.4.1-dist/css/bootstrap.min.css') }}">
   <div class="row">
